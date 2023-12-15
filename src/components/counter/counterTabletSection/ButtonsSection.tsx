@@ -3,18 +3,34 @@ import {Button} from "../buttonSection/button/Button";
 import styled from "styled-components";
 
 type ButtonPropsType = {
-    counterUp?: (numValue: number) => void
+    resetCounter?: () => void
+    counterUp: () => void
     numValue?: number
+    maxValue: number
+    startValue: number
 }
 export const ButtonsSection = (props: ButtonPropsType) => {
+    const resetCounter = () => {
+        props.resetCounter?.()
+    }
+    const incCounter = () => {
+        props.counterUp()
+    }
+    const  disabledReset = props.numValue === props.startValue
+    const disabledInc = props.numValue === props.maxValue
     return (
         <StyledButtonsWrapper>
-            <Button value={'inc'}
-                    counterUp={props.counterUp}
-                    numValue={props.numValue}/>
+            <Button
+                startValue={props.startValue}
+                numValue={props.numValue}
+                maxValue={props.maxValue}
+                title={'inc'}
+                isDisabled={disabledInc}
+                onClick={incCounter}  />
 
-            <Button  value={'reset'}
-                     />
+            <Button  title={'reset'}
+                     isDisabled={disabledReset}
+                     onClick={resetCounter}/>
 
 
         </StyledButtonsWrapper>

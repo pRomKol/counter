@@ -1,16 +1,24 @@
-import React from 'react';
+import React, {ChangeEvent} from 'react';
 import styled from "styled-components";
 
 type InputPropsType = {
-    value: string
+    onChange: (e: ChangeEvent<HTMLInputElement> ) => void
+    title: string
+    value: number
 }
 export const Input = (props: InputPropsType) => {
+
+    const onChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
+        console.log(e.currentTarget.value)
+        props.onChange(e)
+    }
+
     return (
         <StyledInputWrapper>
             <StyledInputText>
-                {props.value}
+                {props.title}
             </StyledInputText>
-            <StyledInput/>
+            <StyledInput value={props.value} onChange={onChangeHandler}/>
         </StyledInputWrapper>
 
     );
@@ -28,6 +36,5 @@ display: flex;
 const StyledInputText = styled.span`
   color: #da4242;
   font-size: 2rem;
-  
 `
 

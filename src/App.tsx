@@ -2,20 +2,42 @@ import React, {useState} from 'react';
 import './App.css';
 import {Counter} from "./components/counter/Counter";
 import {CounterTabletSection} from "./components/counter/counterTabletSection/CounterTabletSection";
-import {v1} from "uuid";
+
 
 function App() {
-    let [numValue, setValue] = useState<number>(0)
-    const counterUp = (numValue: number) => {
-        setValue(++numValue)
+    const [maxValue, setMaxValue] = useState<number>(0)
+    const [startValue, setStartValue] = useState<number>(0)
+    const [counter, setCounter] = useState<number>(startValue)
+
+
+    const resetCounter = () => {
+        setCounter(startValue)
+
+    }
+
+
+    const counterUp = () => {
+        setCounter(counter + 1)
     }
     return (
-
         <div className="App">
-            <Counter/>
+            <Counter
+                changeMinValue={setStartValue}
+                maxValue={maxValue}
+                startValue={startValue}
+                setCounter={setCounter}
+                setMaxValue={setMaxValue}
+
+
+
+            />
             <CounterTabletSection
+                maxValue={maxValue}
+                resetCounter={resetCounter}
                 counterUp={counterUp}
-                numValue={numValue}/>
+                numValue={counter}
+                startValue={startValue}
+            />
         </div>
     );
 }

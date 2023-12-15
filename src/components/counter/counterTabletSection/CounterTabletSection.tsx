@@ -5,14 +5,23 @@ import {ButtonsSection} from "./ButtonsSection";
 
 type ValueType = {
     numValue: number
-    counterUp: (numValue: number) => void
+    counterUp: () => void
+    resetCounter: () => void
+    maxValue: number
+    startValue: number
 }
 
 export const CounterTabletSection = (props: ValueType) => {
     return (
         <CounterTabletWrapper>
+
             <CounterTablet numValue={props.numValue}/>
-            <ButtonsSection numValue={props.numValue} counterUp={props.counterUp}/>
+            <ButtonsSection
+                startValue={props.startValue}
+                maxValue={props.maxValue}
+                numValue={props.numValue}
+                counterUp={props.counterUp}
+                resetCounter={props.resetCounter}/>
         </CounterTabletWrapper>
     );
 };

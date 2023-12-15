@@ -1,11 +1,29 @@
-import React from 'react';
+import React, {FC} from 'react';
 import styled from "styled-components";
 import {Button} from "./button/Button";
+type CounterValueTypePropsType = {
+    minValue: number
+    maxValue: number
+    changeValues: (value: number) => void
+    setCounter: (counterValue: number) => void
+    inputMinValue: number
+    inputMaxValue: number
+    setMaxValue: (maxValue:number) => void
 
-export const ButtonSection = () => {
+}
+
+export const ButtonSection: FC<CounterValueTypePropsType> = ({ setMaxValue, inputMaxValue, inputMinValue, setCounter ,changeValues, minValue}) => {
+
+    const changeValuesHandler = () => {
+        setMaxValue(inputMaxValue)
+        setCounter(inputMinValue)
+        changeValues(inputMinValue)
+        alert(inputMaxValue)
+    }
+
     return (
         <ButtonSectionWrapper>
-            <Button value={'set'}/>
+            <Button onClick={changeValuesHandler} title={'set'} />
         </ButtonSectionWrapper>
     )
 
