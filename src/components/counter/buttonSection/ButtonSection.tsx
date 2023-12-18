@@ -12,13 +12,12 @@ type CounterValueTypePropsType = {
 
 }
 
-export const ButtonSection: FC<CounterValueTypePropsType> = ({ setMaxValue, inputMaxValue, inputMinValue, setCounter ,changeValues, minValue}) => {
+export const ButtonSection: FC<CounterValueTypePropsType> = ({ setMaxValue, inputMaxValue, inputMinValue, setCounter ,changeValues, }) => {
 
     const changeValuesHandler = () => {
         setMaxValue(inputMaxValue)
         setCounter(inputMinValue)
         changeValues(inputMinValue)
-        alert(inputMaxValue)
     }
 
     return (

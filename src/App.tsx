@@ -5,14 +5,13 @@ import {CounterTabletSection} from "./components/counter/counterTabletSection/Co
 
 
 function App() {
-    const [maxValue, setMaxValue] = useState<number>(0)
-    const [startValue, setStartValue] = useState<number>(0)
-    const [counter, setCounter] = useState<number>(startValue)
+    const [maxValue, setMaxValue] = useState(0)
+    const [startValue, setStartValue] = useState(0)
+    const [counter, setCounter] = useState(startValue)
 
 
     const resetCounter = () => {
         setCounter(startValue)
-
     }
 
 
@@ -27,9 +26,6 @@ function App() {
                 startValue={startValue}
                 setCounter={setCounter}
                 setMaxValue={setMaxValue}
-
-
-
             />
             <CounterTabletSection
                 maxValue={maxValue}

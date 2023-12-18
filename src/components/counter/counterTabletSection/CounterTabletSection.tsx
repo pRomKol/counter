@@ -15,7 +15,7 @@ export const CounterTabletSection = (props: ValueType) => {
     return (
         <CounterTabletWrapper>
 
-            <CounterTablet numValue={props.numValue}/>
+            <CounterTablet maxValue={props.maxValue} numValue={props.numValue}/>
             <ButtonsSection
                 startValue={props.startValue}
                 maxValue={props.maxValue}

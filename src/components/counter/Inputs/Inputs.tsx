@@ -1,9 +1,9 @@
-import React, {ChangeEvent, FC, useState} from 'react';
+import React, {ChangeEvent, FC} from 'react';
 import styled from "styled-components";
 import {Input} from "./input/Input";
 
 type InputsPropsType = {
-    onChangeMinValue: (value:number) => void
+
     startValue:number
     maxValue: number
     setInputMinValue: (counterValue: number) => void

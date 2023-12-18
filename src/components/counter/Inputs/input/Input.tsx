@@ -9,7 +9,7 @@ type InputPropsType = {
 export const Input = (props: InputPropsType) => {
 
     const onChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
-        console.log(e.currentTarget.value)
+
         props.onChange(e)
     }
 

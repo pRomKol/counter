@@ -10,7 +10,7 @@ type ButtonPropsType = {
     startValue?: number
     isDisabled?: boolean
 }
-export const пButton = (props: ButtonPropsType) => {
+export const Button = (props: ButtonPropsType) => {
     const onClickHandler = () => {
         props.onClick?.()
     }
